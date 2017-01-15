@@ -14,9 +14,14 @@ public class BulletControl : MonoBehaviour {
     }
 
 	void OnTriggerEnter(Collider collider){
-		if (collider.gameObject.name.Contains("Zombie")) {
-			Destroy(collider.gameObject);
-			Destroy(gameObject);
+		//ARREGLAR !!!!!!
+		if (!collider.isTrigger) {
+			if (collider.gameObject.name.Contains("Zombie")) {
+				Destroy(collider.gameObject);
+				Destroy(gameObject);
+			}
 		}
+			
+
 	}
 }
