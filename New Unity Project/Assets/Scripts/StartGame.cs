@@ -6,6 +6,7 @@ public class StartGame : MonoBehaviour {
 
 	public GameObject hud;
 	public GameObject city;
+	public GameObject player;
 
 	public Camera CameraMenu;
 	public Camera CameraGame;
@@ -29,15 +30,21 @@ public class StartGame : MonoBehaviour {
 		CameraMenu.orthographicSize = CameraGame.orthographicSize;
 		CameraMenu.nearClipPlane = CameraGame.nearClipPlane;
 
-		GameObject.Find ("CameraGame").active = false;
+		CameraMenu.backgroundColor = CameraGame.backgroundColor;
+
+		CameraGame.enabled = false;
+		CameraGame.GetComponent<AudioListener> ().enabled = false;
+
+		//GameObject.Find ("CameraGame").active = false;
 
 
 		city = (GameObject) Instantiate(Resources.Load("Prefabs/City"), Vector3.zero, Quaternion.identity);
+		player = (GameObject) Instantiate(Resources.Load("Prefabs/Player"), Vector3.zero, Quaternion.identity);
+		player.name = "Player";
 
-
-
-
-		//hud = (GameObject)Instantiate(Resources.Load("Prefabs/HUD"), transform.position, transform.rotation);
+		CameraMenu.gameObject.AddComponent<CameraController> ();
 
 	}
+
+
 }
