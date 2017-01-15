@@ -16,6 +16,6 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {	
 		transform.position = GameObject.Find ("Player").transform.position + distance;
-		Debug.Log (GameObject.Find ("Player").gameObject.name);
+		
 	}
 }

@@ -17,10 +17,19 @@ public class PlayerController : MonoBehaviour {
 	private float horizontalMovement;
 	private float verticalMovement;
 
+    private Rigidbody playerRigidBody;
+    private GameObject bulletPrefab;
+    
+    public Transform bulletSpawn;
+
 
 	// Use this for initialization
 	void Start () {
+        playerRigidBody = GetComponent<Rigidbody>();
 		speed = 0.1f;
+
+        bulletPrefab = (GameObject)Resources.Load("Prefabs/Bullet");
+        bulletSpawn = GameObject.Find("SpawnPoint").transform;
 		//rotationSpeed = 10;
 		//factor = 10;
 	}
@@ -40,24 +49,43 @@ public class PlayerController : MonoBehaviour {
 		lookDir.y = 0;
 
 		transform.LookAt (transform.position + lookDir, Vector3.up);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }  
 	}
 
 	void FixedUpdate(){
 		if (Input.GetKey("up")) {
-			transform.Translate (0, 0, 0.01f);
-			Debug.Log ("üp");
+			//transform.Translate (0, 0, 0.01f);
+            playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+			Debug.Log ("up");
 		}
 		if (Input.GetKey("down")) {
-			transform.Translate (0, 0, -0.01f);
+			//transform.Translate (0, 0, -0.01f);
+            playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
 			Debug.Log ("down");
 		}
 		if (Input.GetKey("right")) {
-			transform.Translate (0.01f, 0, 0);
+			//transform.Translate (0.01f, 0, 0);
+            playerRigidBody.MovePosition(transform.position + transform.right * speed);
 			Debug.Log ("right");
 		}
 		if (Input.GetKey("left")) {
-			transform.Translate (-0.01f, 0, 0);
+			//transform.Translate (-0.01f, 0, 0);
+            playerRigidBody.MovePosition(transform.position - transform.right * speed);
 			Debug.Log ("left");
 		}
 	}
+
+    private void Fire()
+    {
+        var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+      
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 100;
+        
+        Destroy(bullet, 3.0f);      
+    
+    }
 }
