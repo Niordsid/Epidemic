@@ -11,6 +11,7 @@ public class ZombieController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		//target inicial es el jugador
 		target = GameObject.Find ("Player");
 		gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
@@ -23,5 +24,12 @@ public class ZombieController : MonoBehaviour {
 
 	void setTarget(GameObject newTarget){
 		target = newTarget;
+	}
+
+	//El zombie encuentra un sobreviviente
+	void OnTriggerEnter(Collider collider){
+		if (collider.gameObject.name.Contains("Survivor")) {
+			setTarget (collider.gameObject);
+		}
 	}
 }

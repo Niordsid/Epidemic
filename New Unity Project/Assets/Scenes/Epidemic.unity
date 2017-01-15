@@ -123,6 +123,9 @@ MonoBehaviour:
   zombie: {fileID: 0}
   zombieCreationTime: 2
   lastZombieCreated: 0
+  survivor: {fileID: 0}
+  survivorCreationTime: 10
+  lastSurvivorCreated: 0
 --- !u!4 &608828920
 Transform:
   m_ObjectHideFlags: 0

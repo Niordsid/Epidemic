@@ -39,6 +39,7 @@ public class StartGame : MonoBehaviour {
 		CameraGame.enabled = false;
 		CameraGame.GetComponent<AudioListener> ().enabled = false;
 
+
 		city = (GameObject) Instantiate(Resources.Load("Prefabs/City"), Vector3.zero, Quaternion.identity);
 		city.name = "City";
 
@@ -47,6 +48,7 @@ public class StartGame : MonoBehaviour {
 
 		CameraMenu.gameObject.AddComponent<CameraController> ();
 
+		Destroy (CameraGame);
 	}
 
 

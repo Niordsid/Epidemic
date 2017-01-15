@@ -27,6 +27,10 @@ public class LoadGame : MonoBehaviour {
 	public float zombieCreationTime = 2;
 	public float lastZombieCreated = 0;
 
+	public GameObject survivor;
+	public float survivorCreationTime = 10;
+	public float lastSurvivorCreated = 0;
+
 
 	void Awake(){
 
@@ -62,11 +66,19 @@ public class LoadGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (playing) {			
+		if (playing) {	
+			//Creacion de zombies
 			if (Time.time > lastZombieCreated + zombieCreationTime) 
 			{
 				createZombie ();
 				lastZombieCreated = Time.time;
+			}
+
+			//Creacion de sobrevivientes
+			if (Time.time > lastSurvivorCreated + survivorCreationTime) 
+			{
+				createSurvivor ();
+				lastSurvivorCreated = Time.time;
 			}
 		}
 	}
@@ -79,5 +91,15 @@ public class LoadGame : MonoBehaviour {
 		Vector3 zombieOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 
 		zombie = (GameObject) Instantiate(Resources.Load("Prefabs/Zombie"), zombieOrigin, Quaternion.identity);
+	}
+
+	public void createSurvivor(){
+
+		string randomPoint = Random.Range (1, 12).ToString();
+		Debug.Log ("RANDOMPOINT : " + randomPoint);
+
+		Vector3 survivorOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
+
+		survivor = (GameObject) Instantiate(Resources.Load("Prefabs/Survivor"), survivorOrigin, Quaternion.identity);
 	}
 }
