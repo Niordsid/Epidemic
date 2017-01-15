@@ -80,17 +80,17 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentRadius: 0.06
+    agentHeight: 0.1
+    agentSlope: 3
+    agentClimb: 0.06
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.02
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e5b6f80ef2a0605428261c59c6df7e58, type: 2}
 --- !u!1 &608828918
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraGamePosition: {x: 0, y: 0, z: 0}
   CameraGameRotation: {x: 0, y: 0, z: 0, w: 0}
+  zombie: {fileID: 0}
+  zombieCreationTime: 2
+  lastZombieCreated: 0
 --- !u!4 &608828920
 Transform:
   m_ObjectHideFlags: 0

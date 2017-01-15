@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerRigidBody = GetComponent<Rigidbody>();
-		speed = 0.1f;
+		speed = 0.03f;
 
         bulletPrefab = (GameObject)Resources.Load("Prefabs/Bullet");
         bulletSpawn = GameObject.Find("SpawnPoint").transform;
@@ -60,22 +60,19 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("up")) {
 			//transform.Translate (0, 0, 0.01f);
             playerRigidBody.MovePosition(transform.position + transform.forward * speed);
-			Debug.Log ("up");
 		}
 		if (Input.GetKey("down")) {
 			//transform.Translate (0, 0, -0.01f);
             playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
-			Debug.Log ("down");
 		}
 		if (Input.GetKey("right")) {
 			//transform.Translate (0.01f, 0, 0);
             playerRigidBody.MovePosition(transform.position + transform.right * speed);
-			Debug.Log ("right");
+
 		}
 		if (Input.GetKey("left")) {
 			//transform.Translate (-0.01f, 0, 0);
             playerRigidBody.MovePosition(transform.position - transform.right * speed);
-			Debug.Log ("left");
 		}
 	}
 

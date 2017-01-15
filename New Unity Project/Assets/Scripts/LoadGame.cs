@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LoadGame : MonoBehaviour {
 
 	GameObject hud;
@@ -18,6 +19,15 @@ public class LoadGame : MonoBehaviour {
 
 	private Button btnJugar;
 
+
+	private bool playing = false;
+
+
+	public GameObject zombie;
+	public float zombieCreationTime = 2;
+	public float lastZombieCreated = 0;
+
+
 	void Awake(){
 
 		CameraGame = ((GameObject)Instantiate (Resources.Load ("Prefabs/CameraGame"), new Vector3(15f, 21.5f, -15f), Quaternion.Euler(45, -45, 0))).GetComponent<Camera>();
@@ -26,13 +36,10 @@ public class LoadGame : MonoBehaviour {
 		CameraMenu = ((GameObject)Instantiate(Resources.Load("Prefabs/CameraMenu"), Vector3.zero, Quaternion.identity)).GetComponent<Camera>();
 		CameraMenu.name = "CameraMenu";
 
-
-
 		sgame = new StartGame();
 
 		hud = (GameObject)Instantiate(Resources.Load("Prefabs/HUD"), transform.position, transform.rotation);
 		hud.name = "HUD";
-
 
 		//Butons
 		btnJugar = (Button)GameObject.Find ("Canvas/Panel/btnJugar").GetComponent<Button>();
@@ -42,6 +49,8 @@ public class LoadGame : MonoBehaviour {
 
 	public void Play(){
 		sgame.startGame ();
+		playing = true;
+		city = GameObject.Find ("City");
 	}
 
 
@@ -52,6 +61,23 @@ public class LoadGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (playing) {			
+			if (Time.time > lastZombieCreated + zombieCreationTime) 
+			{
+				createZombie ();
+				lastZombieCreated = Time.time;
+			}
+		}
+	}
+
+	public void createZombie(){
+
+		string randomPoint = Random.Range (1, 12).ToString();
+		Debug.Log ("RANDOMPOINT : " + randomPoint);
+
+		Vector3 zombieOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
+
+		zombie = (GameObject) Instantiate(Resources.Load("Prefabs/Zombie"), zombieOrigin, Quaternion.identity);
 	}
 }
