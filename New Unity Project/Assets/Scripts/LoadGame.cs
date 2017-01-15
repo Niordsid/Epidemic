@@ -91,7 +91,10 @@ public class LoadGame : MonoBehaviour {
 		Vector3 zombieOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 
 		//zombie = (GameObject) Instantiate(Resources.Load("Prefabs/Zombie"), zombieOrigin, Quaternion.identity);
-        zombie = (GameObject)Instantiate(Resources.Load("Prefabs/Zombie_Lambent_Male"), zombieOrigin, Quaternion.identity);
+        if(Random.Range(0,2) == 0)
+            zombie = (GameObject)Instantiate(Resources.Load("Prefabs/Zombie_Lambent_Male"), zombieOrigin, Quaternion.identity);
+        else
+            zombie = (GameObject)Instantiate(Resources.Load("Prefabs/GreyZombie"), zombieOrigin, Quaternion.identity);
 	}
 
 	public void createSurvivor(){
