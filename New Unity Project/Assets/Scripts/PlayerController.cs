@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("right")) {
 			//transform.Translate (0.01f, 0, 0);
             playerRigidBody.MovePosition(transform.position + transform.right * speed);
-
 		}
 		if (Input.GetKey("left")) {
 			//transform.Translate (-0.01f, 0, 0);
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour {
     {
         var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
       
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 100;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 10;
         
         Destroy(bullet, 3.0f);      
     
