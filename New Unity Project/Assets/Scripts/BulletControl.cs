@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BulletControl : MonoBehaviour {
-
+	
     void OnCollisionEnter(Collision collision)
     {
         print("Hit taget Object : " + collision.gameObject.name);
@@ -13,6 +13,8 @@ public class BulletControl : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+
 
     void OnTriggerEnter(Collider collider)
     {

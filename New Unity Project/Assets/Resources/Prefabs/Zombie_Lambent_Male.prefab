@@ -2014,9 +2014,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 0.42
+  m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.21, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!136 &136976284549865762
 CapsuleCollider:
   m_ObjectHideFlags: 1

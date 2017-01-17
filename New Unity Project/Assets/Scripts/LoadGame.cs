@@ -86,7 +86,7 @@ public class LoadGame : MonoBehaviour {
 	public void createZombie(){
 
 		string randomPoint = Random.Range (1, 12).ToString();
-		Debug.Log ("RANDOMPOINT : " + randomPoint);
+		//Debug.Log ("RANDOMPOINT : " + randomPoint);
 
 		Vector3 zombieOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 
@@ -100,7 +100,7 @@ public class LoadGame : MonoBehaviour {
 	public void createSurvivor(){
 
 		string randomPoint = Random.Range (1, 12).ToString();
-		Debug.Log ("RANDOMPOINT : " + randomPoint);
+		//Debug.Log ("RANDOMPOINT : " + randomPoint);
 
 		Vector3 survivorOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 

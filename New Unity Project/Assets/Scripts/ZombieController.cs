@@ -26,16 +26,23 @@ public class ZombieController : MonoBehaviour {
 		target = newTarget;
 	}
 
-	
+	void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log ("COLISION EN EL ZOMBIE");
+		//El zombie es impactado por una bala
+		if (collision.gameObject.name.Contains("Bullet")) {
+			print("Zombie Died");
+			GetComponent<Animator>().SetBool("bulletImpacted", true);
+		}
+	}
+
+
+
 	void OnTriggerEnter(Collider collider){
         //El zombie encuentra un sobreviviente
 		if (collider.gameObject.name.Contains("Survivor")) {
 			setTarget (collider.gameObject);
 		}
-        //El zombie es impactado por una bala
-        if (collider.gameObject.name.Contains("Bullet")) {
-            print("Zombie Died");
-            GetComponent<Animator>().SetBool("bulletImpacted", true);
-        }
+        
 	}
 }
