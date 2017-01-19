@@ -79,8 +79,7 @@ public class PlayerController : MonoBehaviour {
     {
         var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
       
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
-        
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;        
         Destroy(bullet, 3.0f);      
     
     }
