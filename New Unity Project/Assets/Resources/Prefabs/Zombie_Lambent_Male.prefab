@@ -892,9 +892,9 @@ GameObject:
   - component: {fileID: 4588335588525412}
   - component: {fileID: 95390189398983382}
   - component: {fileID: 54786460363080658}
-  - component: {fileID: 195227490132223370}
-  - component: {fileID: 136976284549865762}
   - component: {fileID: 136387042573081472}
+  - component: {fileID: 135707394351877874}
+  - component: {fileID: 195227490132223370}
   - component: {fileID: 114193047184350962}
   m_Layer: 0
   m_Name: Zombie_Lambent_Male
@@ -2004,6 +2004,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!135 &135707394351877874
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1835927975735076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136387042573081472
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2014,22 +2026,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 0.4
+  m_Height: 0.39
   m_Direction: 1
   m_Center: {x: 0, y: 0.2, z: 0}
---- !u!136 &136976284549865762
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1835927975735076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137608578717014440
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

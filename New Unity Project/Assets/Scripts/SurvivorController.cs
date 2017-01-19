@@ -27,8 +27,7 @@ public class SurvivorController : MonoBehaviour {
 		target = newTarget;
 	}
 
-	void OnTriggerEnter(Collider collider){
-		Debug.Log ("COLLISION : " + collider.gameObject.name);
+	void OnTriggerEnter(Collider collider){		
 		if (collider.gameObject.name.Contains("SafeArea")) {
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 		}
