@@ -42,11 +42,11 @@ public class LoadGame : MonoBehaviour {
 
 		sgame = new StartGame();
 
-		hud = (GameObject)Instantiate(Resources.Load("Prefabs/HUD"), transform.position, transform.rotation);
+		hud = (GameObject)Instantiate(Resources.Load("Prefabs/MainMenu"), transform.position, transform.rotation);
 		hud.name = "HUD";
 
 		//Butons
-		btnJugar = (Button)GameObject.Find ("Canvas/Panel/btnJugar").GetComponent<Button>();
+		btnJugar = (Button)GameObject.Find ("Menu/Play_Button").GetComponent<Button>();
 
 		btnJugar.onClick.AddListener(()=> Play());
 	}
