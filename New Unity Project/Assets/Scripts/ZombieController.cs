@@ -30,7 +30,9 @@ public class ZombieController : MonoBehaviour {
 	{
 		//impacto en el zombie
 		if (collision.gameObject.name.Contains("Bullet")) {
+			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("bulletImpacted", true);
+			Destroy (gameObject, 2.4f);
 		}	
 
 	}
