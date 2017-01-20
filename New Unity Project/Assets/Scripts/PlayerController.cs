@@ -22,9 +22,23 @@ public class PlayerController : MonoBehaviour {
     
     public Transform bulletSpawn;
 
+	private bool isMovementEnabled;
+
+	public void setMovementEnabled(){
+		isMovementEnabled = true;
+		Debug.Log ("REACTIVACION PLAYER");
+	}
+
+	public void setMovementDisabled(){
+		isMovementEnabled = false;
+		Debug.Log ("DEACTIVACION PLAYER");
+	}
+
 
 	// Use this for initialization
 	void Start () {
+		
+		setMovementEnabled ();
         playerRigidBody = GetComponent<Rigidbody>();
 		speed = 0.03f;
 
@@ -37,41 +51,49 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
+		if (isMovementEnabled) {
 
-		if (Physics.Raycast(ray, out hit, 100)) 
-		{
-			lookPos = hit.point;
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast(ray, out hit, 100)) 
+			{
+				lookPos = hit.point;
+			}
+
+			Vector3 lookDir = lookPos - transform.position;
+			lookDir.y = 0;
+
+			transform.LookAt (transform.position + lookDir, Vector3.up);
+
+	        if (Input.GetMouseButtonDown(0))
+	        {
+	            Fire();
+	        }  
 		}
-
-		Vector3 lookDir = lookPos - transform.position;
-		lookDir.y = 0;
-
-		transform.LookAt (transform.position + lookDir, Vector3.up);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Fire();
-        }  
 	}
 
 	void FixedUpdate(){
-		if (Input.GetKey("up")) {
-			//transform.Translate (0, 0, 0.01f);
-            playerRigidBody.MovePosition(transform.position + transform.forward * speed);
-		}
-		if (Input.GetKey("down")) {
-			//transform.Translate (0, 0, -0.01f);
-            playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
-		}
-		if (Input.GetKey("right")) {
-			//transform.Translate (0.01f, 0, 0);
-            playerRigidBody.MovePosition(transform.position + transform.right * speed);
-		}
-		if (Input.GetKey("left")) {
-			//transform.Translate (-0.01f, 0, 0);
-            playerRigidBody.MovePosition(transform.position - transform.right * speed);
+
+		if (isMovementEnabled) {
+
+			if (Input.GetKey("up")) {
+				//transform.Translate (0, 0, 0.01f);
+	            playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+			}
+			if (Input.GetKey("down")) {
+				//transform.Translate (0, 0, -0.01f);
+	            playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
+			}
+			if (Input.GetKey("right")) {
+				//transform.Translate (0.01f, 0, 0);
+	            playerRigidBody.MovePosition(transform.position + transform.right * speed);
+			}
+			if (Input.GetKey("left")) {
+				//transform.Translate (-0.01f, 0, 0);
+	            playerRigidBody.MovePosition(transform.position - transform.right * speed);
+			}
+
 		}
 	}
 

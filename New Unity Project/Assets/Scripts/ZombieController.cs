@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ZombieController : MonoBehaviour {
 
 	public GameObject target;
+	public GameObject player;
 	 
 
 	// Use this for initialization
@@ -14,12 +15,19 @@ public class ZombieController : MonoBehaviour {
 		
 		//target inicial es el jugador
 		target = GameObject.Find ("Player");
+		player = GameObject.Find ("Player");
 		gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+
+		try {
+			gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+		} catch (System.Exception ex) {
+			
+		}
+
 
 
 	}
@@ -42,13 +50,17 @@ public class ZombieController : MonoBehaviour {
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canAttack", true);
 		}	
-		else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) {
-			Debug.Log ("MORDIENDO");
+		else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) 
+		{
+			transform.LookAt (collision.gameObject.transform.position, Vector3.up);
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canBite", true);
-			//StartCoroutine ("walking", 3f);
 
+			if (collision.gameObject.name.Contains("Player")) {
+				player.GetComponent<PlayerController> ().setMovementDisabled ();
+				StartCoroutine (enablePlayerController());
+			}
 		}	
 
 	}
@@ -64,9 +76,10 @@ public class ZombieController : MonoBehaviour {
 	}
 
 
-	IEnumerator walking(){
-		GetComponent<Animator> ().SetBool ("walking", true);
-		yield return true;
+	IEnumerator enablePlayerController(){
+		
+		yield return new WaitForSeconds(2);
+		player.GetComponent<PlayerController> ().setMovementEnabled ();
 	}
 
 	//Encontrar otro objetivo
