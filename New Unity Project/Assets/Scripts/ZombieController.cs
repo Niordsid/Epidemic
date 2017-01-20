@@ -20,6 +20,8 @@ public class ZombieController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+
+
 	}
 
 	void setTarget(GameObject newTarget){
@@ -35,16 +37,37 @@ public class ZombieController : MonoBehaviour {
 			GetComponent<Animator> ().SetBool ("bulletImpacted", true);
 			Destroy (gameObject, 2.4f);
 		}	
-
-		if (collision.gameObject.name.Contains("Barrier")) {
+		else if (collision.gameObject.name.Contains("Barrier")) {
 			//gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canAttack", true);
-			//Destroy (gameObject, 2.4f);
+		}	
+		else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) {
+			Debug.Log ("MORDIENDO");
+			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
+			//gameObject.GetComponent<Collider> ().enabled = false;
+			GetComponent<Animator> ().SetBool ("canBite", true);
+			//StartCoroutine ("walking", 3f);
+
 		}	
 
 	}
 
+	void OnCollisionExit(Collision collision)
+	{
+		if (collision.gameObject.name.Contains ("Survivor") || collision.gameObject.name.Contains ("Player")) {
+			GetComponent<Animator> ().SetBool ("canBite", false);
+			GetComponent<Animator> ().SetBool ("walking", true);
+			gameObject.GetComponent<NavMeshAgent> ().enabled = true;
+
+		}
+	}
+
+
+	IEnumerator walking(){
+		GetComponent<Animator> ().SetBool ("walking", true);
+		yield return true;
+	}
 
 	//Encontrar otro objetivo
 	void OnTriggerEnter(Collider collider){
