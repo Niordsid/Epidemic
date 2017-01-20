@@ -61,6 +61,10 @@ public class ZombieController : MonoBehaviour {
 				player.GetComponent<PlayerController> ().setMovementDisabled ();
 				StartCoroutine (enablePlayerController());
 			}
+			else if (collision.gameObject.name.Contains("Survivor")) {
+				collision.gameObject.GetComponent<SurvivorController> ().setMovementDisabled ();
+				StartCoroutine (enableSurvivorController(collision.gameObject));
+			}
 		}	
 
 	}
@@ -80,6 +84,12 @@ public class ZombieController : MonoBehaviour {
 		
 		yield return new WaitForSeconds(2);
 		player.GetComponent<PlayerController> ().setMovementEnabled ();
+	}
+
+	IEnumerator enableSurvivorController(GameObject gameObject){
+
+		yield return new WaitForSeconds(2);
+		gameObject.transform.GetComponent<SurvivorController> ().setMovementEnabled ();
 	}
 
 	//Encontrar otro objetivo

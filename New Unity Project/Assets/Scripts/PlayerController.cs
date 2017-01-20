@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	//public float rotationSpeed;
+	public float ShootCooldown = 0.2f;
+	public float lastShoot = 0;
 	//public float factor;
 
 	//private Vector3 mousePosition;
@@ -26,12 +27,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void setMovementEnabled(){
 		isMovementEnabled = true;
-		Debug.Log ("REACTIVACION PLAYER");
 	}
 
 	public void setMovementDisabled(){
 		isMovementEnabled = false;
-		Debug.Log ("DEACTIVACION PLAYER");
 	}
 
 
@@ -66,9 +65,12 @@ public class PlayerController : MonoBehaviour {
 
 			transform.LookAt (transform.position + lookDir, Vector3.up);
 
-	        if (Input.GetMouseButtonDown(0))
+	        if (Input.GetMouseButton(0))
 	        {
-	            Fire();
+				if (Time.time > lastShoot + ShootCooldown) {
+					Fire();
+					lastShoot = Time.time ;
+				}
 	        }  
 		}
 	}
