@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		
 		setMovementEnabled ();
-        playerRigidBody = GetComponent<Rigidbody>();
-		speed = 0.03f;
+        //playerRigidBody = GetComponent<Rigidbody>();
+		speed = 3f;
 
         bulletPrefab = (GameObject)Resources.Load("Prefabs/Bullet");
         bulletSpawn = GameObject.Find("SpawnPoint").transform;
@@ -80,20 +80,20 @@ public class PlayerController : MonoBehaviour {
 		if (isMovementEnabled) {
 
 			if (Input.GetKey("up")) {
-				//transform.Translate (0, 0, 0.01f);
-	            playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+				transform.Translate (0, 0, 0.01f*speed);
+	            //playerRigidBody.MovePosition(transform.position + transform.forward * speed);
 			}
 			if (Input.GetKey("down")) {
-				//transform.Translate (0, 0, -0.01f);
-	            playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
+				transform.Translate (0, 0, -0.01f*speed);
+	            //playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
 			}
 			if (Input.GetKey("right")) {
-				//transform.Translate (0.01f, 0, 0);
-	            playerRigidBody.MovePosition(transform.position + transform.right * speed);
+				transform.Translate (0.01f*speed, 0, 0);
+	            //playerRigidBody.MovePosition(transform.position + transform.right * speed);
 			}
 			if (Input.GetKey("left")) {
-				//transform.Translate (-0.01f, 0, 0);
-	            playerRigidBody.MovePosition(transform.position - transform.right * speed);
+				transform.Translate (-0.01f*speed, 0, 0);
+	            //playerRigidBody.MovePosition(transform.position - transform.right * speed);
 			}
 
 		}

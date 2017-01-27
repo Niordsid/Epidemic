@@ -12,6 +12,8 @@ public class SurvivorController : MonoBehaviour {
 
 	public void setMovementEnabled(){
 		gameObject.GetComponent<NavMeshAgent> ().enabled = true;
+		gameObject.GetComponent<NavMeshAgent> ().destination = safeArea.transform.position;
+		Debug.Log ("Survivor reactivado");
 	}
 
 	public void setMovementDisabled(){

@@ -23,7 +23,9 @@ public class ZombieController : MonoBehaviour {
 	void Update () {
 
 		try {
-			gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+			if (gameObject.GetComponent<NavMeshAgent> ().enabled) {
+				gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+			}
 		} catch (System.Exception ex) {
 			
 		}
