@@ -31,6 +31,10 @@ public class LoadGame : MonoBehaviour {
 	public float survivorCreationTime = 10;
 	public float lastSurvivorCreated = 0;
 
+    public GameObject helicopter;
+    public float helicopterCreationTime = 5;
+    public float lastHelicopterCreated = 0;
+
 
 	void Awake(){
 
@@ -80,6 +84,13 @@ public class LoadGame : MonoBehaviour {
 				createSurvivor ();
 				lastSurvivorCreated = Time.time;
 			}
+
+            //Creacion de sobrevivientes
+            if (Time.time > lastHelicopterCreated + helicopterCreationTime)
+            {
+                createHelicopter();
+                lastHelicopterCreated = Time.time;
+            }
 		}
 	}
 
@@ -106,4 +117,24 @@ public class LoadGame : MonoBehaviour {
 
 		survivor = (GameObject) Instantiate(Resources.Load("Prefabs/Survivor"), survivorOrigin, Quaternion.identity);
 	}
+
+    public void createHelicopter()
+    {
+
+        float z;
+        Quaternion r;
+        if (Random.Range(0, 2) > 0){
+            r = Quaternion.Euler(new Vector3(0, 180, 0));
+            z = 10;
+        }
+            
+        else {
+            r = Quaternion.identity;
+            z = -10;
+        }
+           
+        survivor = (GameObject)Instantiate(Resources.Load("Prefabs/Helicopter"), new Vector3(Random.Range(-6,5),7,z) , r);
+    }
+
+   
 }

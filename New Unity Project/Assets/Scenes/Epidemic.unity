@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -126,6 +126,9 @@ MonoBehaviour:
   survivor: {fileID: 0}
   survivorCreationTime: 10
   lastSurvivorCreated: 0
+  helicopter: {fileID: 0}
+  helicopterCreationTime: 5
+  lastHelicopterCreated: 0
 --- !u!4 &608828920
 Transform:
   m_ObjectHideFlags: 0
