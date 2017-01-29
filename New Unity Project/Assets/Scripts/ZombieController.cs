@@ -16,7 +16,7 @@ public class ZombieController : MonoBehaviour {
 		//target inicial es el jugador
 		target = GameObject.Find ("Player");
 		player = GameObject.Find ("Player");
-		gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
+		gameObject.GetComponent<NavMeshAgent> ().SetDestination(target.transform.position);
 	}
 	
 	// Update is called once per frame
@@ -40,6 +40,9 @@ public class ZombieController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log ("COLISION " + collision.gameObject.name);
+
+
 		//impacto en el zombie
 		if (collision.gameObject.name.Contains("Bullet")) {
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
@@ -47,7 +50,7 @@ public class ZombieController : MonoBehaviour {
 			GetComponent<Animator> ().SetBool ("bulletImpacted", true);
 			Destroy (gameObject, 2.4f);
 		}	
-		else if (collision.gameObject.name.Contains("Barrier")) {
+		if (collision.gameObject.name.Contains("Barrier")) {
 			//gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canAttack", true);
@@ -56,7 +59,6 @@ public class ZombieController : MonoBehaviour {
 		{
 			transform.LookAt (collision.gameObject.transform.position, Vector3.up);
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
-			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canBite", true);
 
 			if (collision.gameObject.name.Contains("Player")) {

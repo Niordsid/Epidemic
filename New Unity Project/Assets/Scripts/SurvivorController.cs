@@ -8,25 +8,26 @@ public class SurvivorController : MonoBehaviour {
 	public GameObject target;
 	public GameObject safeArea;
 
+	// Use this for initialization
+	void Start () {
+		//target inicial es el jugador
+		safeArea = GameObject.Find ("City/Buildings/SafeAreaParent/SafeArea" + Random.Range (1, 10));
+		gameObject.GetComponent<NavMeshAgent> ().destination = safeArea.transform.position;
+		setMovementEnabled();
+	}
+
 	private bool isMovementEnabled;
 
 	public void setMovementEnabled(){
 		gameObject.GetComponent<NavMeshAgent> ().enabled = true;
 		gameObject.GetComponent<NavMeshAgent> ().destination = safeArea.transform.position;
-		Debug.Log ("Survivor reactivado");
 	}
 
 	public void setMovementDisabled(){
 		gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 	}
 
-	// Use this for initialization
-	void Start () {
-		//target inicial es el jugador
-		setMovementEnabled();
-		safeArea = GameObject.Find ("City/Buildings/SafeAreaParent/SafeArea" + Random.Range (1, 10));
-		gameObject.GetComponent<NavMeshAgent> ().destination = safeArea.transform.position;
-	}
+
 
 	// Update is called once per frame
 	void Update () {
