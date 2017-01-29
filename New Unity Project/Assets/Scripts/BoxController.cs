@@ -15,16 +15,26 @@ public class BoxController : MonoBehaviour {
 
     public void OnCollisionEnter(Collision coll)
     {
-        
+        Debug.Log("" + coll.gameObject.name);
         if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav")))
         {
+
             mesh.enabled = false;
-            foreach (ParticleSystem ps in particles)
+
+            if (coll.gameObject.name.Contains("Player"))
             {
-                ps.Play();
+                Destroy(gameObject);
             }
-                        
-            Destroy(gameObject,1.5f);
+            else
+            {
+                foreach (ParticleSystem ps in particles)
+                {
+                    ps.Play();
+                }
+
+                Destroy(gameObject, 1.5f);
+            }
+            
         }
     }
 

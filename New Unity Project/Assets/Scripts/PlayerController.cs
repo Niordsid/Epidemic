@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 
 	        if (Input.GetMouseButton(0))
 	        {
-				Debug.Log ("DIPSARO");
+				Debug.Log ("DISPARO");
 				if (Time.time > lastShoot + ShootCooldown) {
 					Fire();
 					lastShoot = Time.time ;
