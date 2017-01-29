@@ -16,7 +16,7 @@ public class BoxController : MonoBehaviour {
     public void OnCollisionEnter(Collision coll)
     {
         
-        if (!coll.gameObject.name.Contains("Floor"))
+        if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav")))
         {
             mesh.enabled = false;
             foreach (ParticleSystem ps in particles)
