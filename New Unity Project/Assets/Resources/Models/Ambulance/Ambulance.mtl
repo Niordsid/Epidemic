@@ -1,0 +1,86 @@
+# 
+# 
+
+newmtl 0
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.2790 0.2790 0.2790
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_dam_02_d.dds
+	map_Kd veh_ambulance_dam_02_d.dds
+
+newmtl 6
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_underside_d.dds
+	map_Kd veh_ambulance_underside_d.dds
+
+newmtl 1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.2970 0.2970 0.2970
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_dam_02_1_d.dds
+	map_Kd veh_ambulance_dam_02_1_d.dds
+
+newmtl 4
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.3330 0.3330 0.3330
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_logo_dam_d.dds
+	map_Kd veh_ambulance_logo_dam_d.dds
+
+newmtl 3
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.3150 0.3150 0.3150
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_windows_d.dds
+	map_Kd veh_ambulance_windows_d.dds
+
+newmtl 2
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.2160 0.2160 0.2160
+	Ke 0.0000 0.0000 0.0000
+	map_Ka veh_ambulance_wheels_d.dds
+	map_Kd veh_ambulance_wheels_d.dds
