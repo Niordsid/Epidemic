@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-        GetComponentInChildren<ParticleSystem>().Stop();
+    private ParticleSystem[] particles;
+    private MeshRenderer mesh;
+    
+    void Start () {
+        mesh = GetComponent<MeshRenderer>();
+        particles = GetComponentsInChildren<ParticleSystem>();
+        Destroy(gameObject, 10f);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnCollisionEnter(Collision coll)
     {
         
         if (!coll.gameObject.name.Contains("Floor"))
         {
-            GetComponentInChildren<ParticleSystem>().Play();
+            mesh.enabled = false;
+            foreach (ParticleSystem ps in particles)
+            {
+                ps.Play();
+            }
+                        
             Destroy(gameObject,1.5f);
         }
     }
