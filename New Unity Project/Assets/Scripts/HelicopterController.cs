@@ -6,7 +6,7 @@ public class HelicopterController : MonoBehaviour {
 
 
     private float dir;
-    private GameObject box;
+    public GameObject box;
 
 	void Start () {
         if (transform.position.z > 0)
@@ -18,19 +18,15 @@ public class HelicopterController : MonoBehaviour {
         StartCoroutine(dropBox());
 
 	}
-	
-	
+		
 	void Update () {
         transform.position = transform.position + new Vector3(0, 0, dir);
 	}
-
-
+    
     IEnumerator dropBox()
     {
-
         yield return new WaitForSeconds(2.5f);
         box = (GameObject)Instantiate(Resources.Load("Prefabs/Box"), new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),Quaternion.identity);
     }
-
-
+    
 }

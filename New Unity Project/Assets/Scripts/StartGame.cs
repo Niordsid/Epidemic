@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour {
 
-
-
 	public GameObject hud;
 	public GameObject city;
 	public GameObject player;
@@ -23,7 +21,8 @@ public class StartGame : MonoBehaviour {
 
 	public void startGame(){
 
-		GameObject.Find ("HUD").active = false;
+        //GameObject.Find("HUD").active = false;
+		GameObject.Find ("HUD").SetActive(false);
 
 		CameraMenu =  GameObject.Find ("CameraMenu").GetComponent<Camera>();
 		CameraGame =  GameObject.Find ("CameraGame").GetComponent<Camera>();

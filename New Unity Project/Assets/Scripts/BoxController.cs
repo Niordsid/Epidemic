@@ -19,21 +19,34 @@ public class BoxController : MonoBehaviour
     {
         if (coll.gameObject.name.Contains("Player"))
         {
-
-            Debug.Log("CAJA TOMADA");
             GameObject.Find("Player").GetComponent<PlayerPowerController>().increasePower();
-            Destroy(gameObject);
+            foreach (ParticleSystem ps in particles)
+            {
+                if (ps.name.Contains("Power"))
+                {
+                    ps.Play();
+                    //Debug.Log(ps.name+ " done!!");
+                }
+                    
+            }
+            mesh.enabled = false;
+            Destroy(gameObject, 1f);
         }
 
         //Debug.Log("" + coll.gameObject.name);
-        if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav")))
+        if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav") || coll.gameObject.name.Contains("Player")))
         {
 
             mesh.enabled = false;
 
             foreach (ParticleSystem ps in particles)
             {
-                ps.Play();
+                if (!ps.name.Contains("Power"))
+                {
+                    ps.Play();
+                    //Debug.Log(ps.name + " explode!!");
+                }
+                    
             }
 
             Destroy(gameObject, 1.5f);

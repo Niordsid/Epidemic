@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour {
 		isMovementEnabled = false;
 	}
 
-
-	// Use this for initialization
 	void Start () {
 		
 		setMovementEnabled ();
@@ -50,7 +48,6 @@ public class PlayerController : MonoBehaviour {
 		//factor = 10;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
 		if (isMovementEnabled) {
@@ -81,7 +78,7 @@ public class PlayerController : MonoBehaviour {
 				}
 
 
-			//Moviemiento
+			//Movimiento
 			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
 				transform.Translate (0, 0, 0.01f*speed);
 				GetComponent<Animator> ().SetBool ("playerIsMoving", true);
@@ -153,10 +150,10 @@ public class PlayerController : MonoBehaviour {
 
         if (numBullets == 3)
         {
-            var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(-0.04f, 0, -0.04f), bulletSpawn.rotation *= Quaternion.Euler(0, -6, 0));
+            var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(-0.05f, 0, -0.05f), bulletSpawn.rotation *= Quaternion.Euler(0, -9, 0));
             var bullet1 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-            var bullet2 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(0.04f, 0, 0.04f), bulletSpawn.rotation *= Quaternion.Euler(0, 6, 0));
+            var bullet2 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(0.05f, 0, 0.05f), bulletSpawn.rotation *= Quaternion.Euler(0, 9, 0));
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
             Destroy(bullet, 3.0f);
@@ -166,7 +163,6 @@ public class PlayerController : MonoBehaviour {
 
             bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * 20;
             Destroy(bullet2, 3.0f);
-
           
         }
     

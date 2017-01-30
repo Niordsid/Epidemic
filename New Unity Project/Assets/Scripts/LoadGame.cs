@@ -60,15 +60,8 @@ public class LoadGame : MonoBehaviour {
 		playing = true;
 		city = GameObject.Find ("City");
 	}
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
+    void Update () {
 
 		if (playing) {	
 			//Creacion de zombies
@@ -97,11 +90,10 @@ public class LoadGame : MonoBehaviour {
 	public void createZombie(){
 
 		string randomPoint = Random.Range (1, 12).ToString();
-		//Debug.Log ("RANDOMPOINT : " + randomPoint);
+		
 
 		Vector3 zombieOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 
-		//zombie = (GameObject) Instantiate(Resources.Load("Prefabs/Zombie"), zombieOrigin, Quaternion.identity);
         if(Random.Range(0,2) == 0)
             zombie = (GameObject)Instantiate(Resources.Load("Prefabs/Zombie_Lambent_Male"), zombieOrigin, Quaternion.identity);
         else
@@ -111,7 +103,6 @@ public class LoadGame : MonoBehaviour {
 	public void createSurvivor(){
 
 		string randomPoint = Random.Range (1, 12).ToString();
-		//Debug.Log ("RANDOMPOINT : " + randomPoint);
 
 		Vector3 survivorOrigin = city.transform.FindChild("ZombieSpawnPoints").FindChild("Point" + randomPoint).transform.position ;
 

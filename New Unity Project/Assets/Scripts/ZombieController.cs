@@ -24,10 +24,8 @@ public class ZombieController : MonoBehaviour {
 				gameObject.GetComponent<NavMeshAgent> ().destination = target.transform.position;
 			}
 		} catch (System.Exception ex) {
-			
+            Debug.LogWarning(ex);
 		}
-
-
 
 	}
 
@@ -36,9 +34,7 @@ public class ZombieController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision)
-	{
-		//Debug.Log ("COLISION " + collision.gameObject.name);
-        
+	{        
 		//impacto en el zombie
 		if (collision.gameObject.name.Contains("Bullet")) {
 
@@ -85,8 +81,7 @@ public class ZombieController : MonoBehaviour {
 
 		}
 	}
-
-
+    
 	IEnumerator enablePlayerController(){
 		
 		yield return new WaitForSeconds(2);

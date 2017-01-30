@@ -16,13 +16,9 @@ public class ZombieHealth : MonoBehaviour {
     public void damage()
     {
         if (currentZombieHealth > 0)
-        {
-            //Debug.Log(" zzz "+GameObject.Find("Player").GetComponent<PlayerPowerController>().getZombieDamage());
+        {            
             currentZombieHealth -= GameObject.Find("Player").GetComponent<PlayerPowerController>().getZombieDamage();
-
             healthBar.fillAmount = currentZombieHealth / initialZombieHealth;
-
-            //Debug.Log(currentZombieHealth + " " + healthBar.fillAmount + " " + initialZombieHealth);
         }
             
     }

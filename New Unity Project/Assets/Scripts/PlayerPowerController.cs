@@ -51,7 +51,6 @@ public class PlayerPowerController : MonoBehaviour {
         if (playerPower == 3)
         {
             GameObject.Find("Player").GetComponent<PlayerController>().addBullet();
-            Debug.Log("DAMAGE UP " + zombieDamage);
         }
 
         if (playerPower == 4)
