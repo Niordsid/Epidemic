@@ -69,21 +69,45 @@ public class PlayerController : MonoBehaviour {
 	        {
 				Debug.Log ("DISPARO");
 				if (Time.time > lastShoot + ShootCooldown) {
+					GetComponent<Animator> ().SetBool ("playerIsShooting", true);
 					Fire();
 					lastShoot = Time.time ;
 				}
-	        }  
+	        } else {
+				GetComponent<Animator> ().SetBool ("playerIsShooting", false);
+				}
+
+
+			//Moviemiento
+			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
+				transform.Translate (0, 0, 0.01f*speed);
+				GetComponent<Animator> ().SetBool ("playerIsMoving", true);
+				//Debug.Log ("Player is moving");
+				//playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+			} else {
+				
+				GetComponent<Animator> ().SetBool ("playerIsmoving", false);
+				//Debug.Log ("Player is NOT moving");
+			}
+
 		}
 	}
 
 	void FixedUpdate(){
-
+		/*
 		if (isMovementEnabled) {
 
 			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
 				transform.Translate (0, 0, 0.01f*speed);
+				GetComponent<Animator> ().SetBool ("playerIsmoving", true);
+				Debug.Log ("Player is moving");
 	            //playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+			} else {
+				GetComponent<Animator> ().SetBool ("playerIsmoving", false);
+				Debug.Log ("Player is NOT moving");
 			}
+
+
 			if (Input.GetKey("down") || Input.GetKey(KeyCode.S)) {
 				transform.Translate (0, 0, -0.01f*speed);
 	            //playerRigidBody.MovePosition(transform.position - transform.forward  * speed);
@@ -97,7 +121,9 @@ public class PlayerController : MonoBehaviour {
 	            //playerRigidBody.MovePosition(transform.position - transform.right * speed);
 			}
 
+
 		}
+		*/
 	}
 
     private void Fire()
