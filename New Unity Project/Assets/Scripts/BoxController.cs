@@ -15,7 +15,7 @@ public class BoxController : MonoBehaviour {
 
     public void OnCollisionEnter(Collision coll)
     {
-        Debug.Log("" + coll.gameObject.name);
+        //Debug.Log("" + coll.gameObject.name);
         if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav")))
         {
 
