@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 54035347601648646}
   - component: {fileID: 136358970104167152}
   - component: {fileID: 114367036757457970}
+  - component: {fileID: 114695967113728680}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2065,6 +2066,17 @@ MonoBehaviour:
   ShootCooldown: 0.2
   lastShoot: 0
   bulletSpawn: {fileID: 0}
+--- !u!114 &114695967113728680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493612890363480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de10b22deeacdb842abf28240a5a3a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136358970104167152
 CapsuleCollider:
   m_ObjectHideFlags: 1

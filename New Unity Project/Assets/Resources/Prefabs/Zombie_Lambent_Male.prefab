@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c68ee16ad73cd4783500dd1f4aeb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialZombieHealth: 5
+  initialZombieHealth: 10
   healthBar: {fileID: 114036450144654698}
 --- !u!114 &114955863100060630
 MonoBehaviour:
@@ -2195,8 +2195,8 @@ SkinnedMeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1820024185630044}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

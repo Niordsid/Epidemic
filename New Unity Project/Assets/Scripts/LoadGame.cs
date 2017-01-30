@@ -32,7 +32,7 @@ public class LoadGame : MonoBehaviour {
 	public float lastSurvivorCreated = 0;
 
     public GameObject helicopter;
-    public float helicopterCreationTime = 5;
+    public float helicopterCreationTime = 7;
     public float lastHelicopterCreated = 0;
 
 
@@ -133,7 +133,7 @@ public class LoadGame : MonoBehaviour {
             z = -10;
         }
            
-        survivor = (GameObject)Instantiate(Resources.Load("Prefabs/Helicopter"), new Vector3(Random.Range(-6,5),7,z) , r);
+        helicopter = (GameObject)Instantiate(Resources.Load("Prefabs/Helicopter"), new Vector3(Random.Range(-6,5),7,z) , r);
     }
 
    

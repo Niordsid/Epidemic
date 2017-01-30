@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ZombieHealth : MonoBehaviour {
 
-    public int initialZombieHealth = 5;
-    private int currentZombieHealth;
+    public float initialZombieHealth;
+    private float currentZombieHealth;
     public Image healthBar;
 
 	void Start () {
@@ -17,14 +17,17 @@ public class ZombieHealth : MonoBehaviour {
     {
         if (currentZombieHealth > 0)
         {
-            currentZombieHealth -= 1;
+            //Debug.Log(" zzz "+GameObject.Find("Player").GetComponent<PlayerPowerController>().getZombieDamage());
+            currentZombieHealth -= GameObject.Find("Player").GetComponent<PlayerPowerController>().getZombieDamage();
 
-            healthBar.fillAmount = currentZombieHealth / 5.0f;
+            healthBar.fillAmount = currentZombieHealth / initialZombieHealth;
+
+            //Debug.Log(currentZombieHealth + " " + healthBar.fillAmount + " " + initialZombieHealth);
         }
             
     }
 
-    public int GetZombieHealth(){
+    public float GetZombieHealth(){
         return currentZombieHealth;
     }
 

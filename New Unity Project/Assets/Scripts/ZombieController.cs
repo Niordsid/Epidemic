@@ -44,7 +44,7 @@ public class ZombieController : MonoBehaviour {
 
             GetComponent<ZombieHealth>().damage();
 
-            if (GetComponent<ZombieHealth>().GetZombieHealth() == 0)
+            if (GetComponent<ZombieHealth>().GetZombieHealth() <= 0)
             {
                 gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 gameObject.GetComponent<Collider>().enabled = false;
