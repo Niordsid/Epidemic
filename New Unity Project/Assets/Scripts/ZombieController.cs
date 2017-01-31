@@ -50,11 +50,13 @@ public class ZombieController : MonoBehaviour {
 			
 		}	
 		if (collision.gameObject.name.Contains("Barrier")) {
+            Debug.Log("colision barrera!");
 			//gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canAttack", true);
 		}	
-		else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) 
+		//else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) 
+        else if (collision.gameObject.name.Contains("Player")) 
 		{
 			transform.LookAt (collision.gameObject.transform.position, Vector3.up);
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;

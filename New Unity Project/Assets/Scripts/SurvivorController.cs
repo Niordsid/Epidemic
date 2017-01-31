@@ -27,23 +27,15 @@ public class SurvivorController : MonoBehaviour {
 		gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 	}
 
-
-
-	// Update is called once per frame
-	void Update () {
-		
-		//gameObject.GetComponent<NavMeshAgent> ().destination = Vector3.zero;
-
-
-	}
-
 	void setTarget(GameObject newTarget){
 		target = newTarget;
 	}
 
-	void OnTriggerEnter(Collider collider){		
+	void OnTriggerEnter(Collider collider){
+
 		if (collider.gameObject.name.Contains("SafeArea")) {
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
+            GetComponent<Animator>().SetBool("isSafe", true);
 		}
 	}
 
