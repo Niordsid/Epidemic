@@ -66,8 +66,7 @@ public class PlayerController : MonoBehaviour {
 			transform.LookAt (transform.position + lookDir, Vector3.up);
 
 			if (Input.GetMouseButton (0)) {
-				//Debug.Log ("DISPARO");
-				Debug.Log ("shooting");
+				
 				if (Time.time > lastShoot + ShootCooldown) {
 					GetComponent<Animator> ().SetBool ("playerIsShooting",true);
 					Fire ();
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 
 			//Movimiento
 			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
-				transform.Translate (0, 0, 0.01f*speed);
+				transform.Translate (0, 0, 0.01f * speed);
 				GetComponent<Animator> ().SetBool ("playerIsMoving", true);
 				//Debug.Log ("Player is moving");
 				//playerRigidBody.MovePosition(transform.position + transform.forward * speed);

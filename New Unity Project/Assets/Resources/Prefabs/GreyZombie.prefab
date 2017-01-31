@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 223221279413350510}
   - component: {fileID: 114087962848976446}
   - component: {fileID: 114556297336484296}
+  - component: {fileID: 114506932514881370}
   m_Layer: 0
   m_Name: HealthBarCanvas
   m_TagString: Untagged
@@ -2006,6 +2007,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialZombieHealth: 10
   healthBar: {fileID: 114035261445083300}
+--- !u!114 &114506932514881370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476140223819542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc0c5f5aa32ba647bb8032f95993e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114556297336484296
 MonoBehaviour:
   m_ObjectHideFlags: 1
