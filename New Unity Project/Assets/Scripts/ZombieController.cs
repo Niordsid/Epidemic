@@ -64,8 +64,9 @@ public class ZombieController : MonoBehaviour {
 
 			if (collision.gameObject.name.Contains("Player")) {
 
-                if (!player.GetComponent<Animator>().GetBool("playerIsHurt"))
+                if (!player.GetComponent<Animator>().GetBool("playerIsHurt") || player.GetComponent<Animator>().GetBool("playerDie"))
                 {
+                    player.GetComponent<PlayerHealth>().damage();
                     player.GetComponent<PlayerController>().setMovementDisabled();
                     player.GetComponent<Animator>().SetBool("playerIsHurt", true);
                     player.GetComponent<Collider>().enabled = false;
