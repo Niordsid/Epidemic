@@ -58,7 +58,9 @@ public class ZombieController : MonoBehaviour {
 		{
 			transform.LookAt (collision.gameObject.transform.position, Vector3.up);
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
-			GetComponent<Animator> ().SetBool ("canBite", true);
+            
+            if(!GetComponent<Animator>().GetBool("canBite"))
+                GetComponent<Animator> ().SetBool ("canBite", true);
 
 			if (collision.gameObject.name.Contains("Player")) {
 
@@ -90,7 +92,7 @@ public class ZombieController : MonoBehaviour {
 	}
     
 	IEnumerator enablePlayerController(){
-
+        GetComponent<Animator>().SetBool("canBite", false);
         player.GetComponent<Collider>().enabled = true;        
 		yield return new WaitForSeconds(2);
 		player.GetComponent<PlayerController> ().setMovementEnabled ();

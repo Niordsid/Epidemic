@@ -18,8 +18,8 @@ TagManager:
   - Jugador
   - Box
   - PlayerLock
-  - SafeArea
   - Survivors
+  - SafeArea
   - Bullet
   - 
   - 
