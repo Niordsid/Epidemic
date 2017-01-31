@@ -36,7 +36,7 @@ public class StartGame : MonoBehaviour {
 		CameraMenu.backgroundColor = CameraGame.backgroundColor;
 
 		CameraGame.enabled = false;
-		CameraGame.GetComponent<AudioListener> ().enabled = false;
+		//CameraGame.GetComponent<AudioListener> ().enabled = false;
 
 
 		city = (GameObject) Instantiate(Resources.Load("Prefabs/City"), Vector3.zero, Quaternion.identity);
