@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 65862311800836390}
   - component: {fileID: 114343337282404088}
   - component: {fileID: 82270020388913342}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4343800079980718}
   - component: {fileID: 198457069211325140}
   - component: {fileID: 199607358355436600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4063436388280816}
   - component: {fileID: 198840729712693284}
   - component: {fileID: 199085105940263204}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4367908099496458}
   - component: {fileID: 198319788570198906}
   - component: {fileID: 199448214482510800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816587633537884}
   - component: {fileID: 108844022364669548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4847768556064642}
   - component: {fileID: 198628184458372174}
   - component: {fileID: 199507333478125518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8357,12 +8357,12 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 358584190
+  randomSeed: -982340243
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8401,7 +8401,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 10
+      scalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10666,7 +10666,7 @@ ParticleSystem:
       minMaxState: 0
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     lifetime:
       scalar: 0.02

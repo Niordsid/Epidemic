@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		
 		setMovementEnabled ();
-        //playerRigidBody = GetComponent<Rigidbody>();
-		speed = 3f;
+        playerRigidBody = GetComponent<Rigidbody>();
+		speed = 1f;
 
         bulletPrefab = (GameObject)Resources.Load("Prefabs/Bullet");
         bulletSpawn = GameObject.Find("SpawnPoint").transform;
@@ -79,14 +79,13 @@ public class PlayerController : MonoBehaviour {
 
 			//Movimiento
 			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
-				transform.Translate (0, 0, 0.01f * speed);
+				//transform.Translate (0, 0, 0.01f * speed);
 				GetComponent<Animator> ().SetBool ("playerIsMoving", true);
-				//Debug.Log ("Player is moving");
-				//playerRigidBody.MovePosition(transform.position + transform.forward * speed);
+				
+				playerRigidBody.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
 			} else {
 				
 				GetComponent<Animator> ().SetBool ("playerIsMoving", false);
-				//Debug.Log ("Player is NOT moving");
 			}
 
 		}
@@ -119,8 +118,7 @@ public class PlayerController : MonoBehaviour {
 				transform.Translate (-0.01f*speed, 0, 0);
 	            //playerRigidBody.MovePosition(transform.position - transform.right * speed);
 			}
-
-
+        
 		}
 		*/
 	}
@@ -149,10 +147,11 @@ public class PlayerController : MonoBehaviour {
 
         if (numBullets == 3)
         {
-            var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(-0.05f, 0, -0.05f), bulletSpawn.rotation *= Quaternion.Euler(0, -9, 0));
+            
+            var bullet = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(-0.04f, 0, -0.04f), bulletSpawn.rotation *= Quaternion.Euler(0, -9, 0));
             var bullet1 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-            var bullet2 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(0.05f, 0, 0.05f), bulletSpawn.rotation *= Quaternion.Euler(0, 9, 0));
+            var bullet2 = (GameObject)Instantiate(bulletPrefab, bulletSpawn.position + new Vector3(0.04f, 0, 0.04f), bulletSpawn.rotation *= Quaternion.Euler(0, 9, 0));
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
             Destroy(bullet, 3.0f);
@@ -167,11 +166,9 @@ public class PlayerController : MonoBehaviour {
     
     }
 
-
     public void addBullet(){
         if(numBullets < 3)
-            numBullets++;
-
-        Debug.Log("DAMAGE UP " + numBullets);
+            numBullets++;   
     }
+    
 }

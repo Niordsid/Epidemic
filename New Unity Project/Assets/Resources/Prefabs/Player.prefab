@@ -456,10 +456,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4641888676366792}
   - component: {fileID: 95793669193850872}
-  - component: {fileID: 54035347601648646}
   - component: {fileID: 136358970104167152}
   - component: {fileID: 114367036757457970}
   - component: {fileID: 114695967113728680}
+  - component: {fileID: 54505134715439422}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -2019,7 +2019,7 @@ Transform:
   m_Father: {fileID: 4442343684452476}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54035347601648646
+--- !u!54 &54505134715439422
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2032,8 +2032,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
+  m_Constraints: 116
+  m_CollisionDetection: 1
 --- !u!95 &95793669193850872
 Animator:
   serializedVersion: 3

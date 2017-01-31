@@ -38,24 +38,22 @@ public class PlayerPowerController : MonoBehaviour {
     public void updatePowerUp()
     {
         if(playerPower == 1){
-            zombieDamage = 2.0f;
-            Debug.Log("DAMAGE UP " + zombieDamage);
+            GameObject.Find("Player").GetComponent<PlayerController>().addBullet();
         }
 
         if (playerPower == 2)
         {
-            zombieDamage = 3.0f;
-            Debug.Log("DAMAGE UP " + zombieDamage);
+            zombieDamage = 2.0f;           
         }
 
         if (playerPower == 3)
         {
-            GameObject.Find("Player").GetComponent<PlayerController>().addBullet();
+            GameObject.Find("Player").GetComponent<PlayerController>().addBullet();             
         }
 
         if (playerPower == 4)
         {
-            GameObject.Find("Player").GetComponent<PlayerController>().addBullet();
+            zombieDamage = 2.0f; 
         }
     }
 }

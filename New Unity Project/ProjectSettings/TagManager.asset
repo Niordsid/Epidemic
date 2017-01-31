@@ -16,11 +16,11 @@ TagManager:
   - Zombies
   - Edificios
   - Jugador
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Box
+  - PlayerLock
+  - SafeArea
+  - Survivors
+  - Bullet
   - 
   - 
   - 

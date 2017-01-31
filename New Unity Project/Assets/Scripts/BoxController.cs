@@ -20,6 +20,7 @@ public class BoxController : MonoBehaviour
         if (coll.gameObject.name.Contains("Player"))
         {
             GameObject.Find("Player").GetComponent<PlayerPowerController>().increasePower();
+            
             foreach (ParticleSystem ps in particles)
             {
                 if (ps.name.Contains("Power"))
@@ -34,7 +35,7 @@ public class BoxController : MonoBehaviour
         }
 
         //Debug.Log("" + coll.gameObject.name);
-        if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Pav") || coll.gameObject.name.Contains("Player")))
+        if (!(coll.gameObject.name.Contains("Road") || coll.gameObject.name.Contains("Floor") || coll.gameObject.name.Contains("Pav") || coll.gameObject.name.Contains("Player")))
         {
 
             mesh.enabled = false;
