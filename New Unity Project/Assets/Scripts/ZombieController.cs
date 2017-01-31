@@ -49,11 +49,11 @@ public class ZombieController : MonoBehaviour {
             }
 			
 		}	
-		if (collision.gameObject.name.Contains("Barrier")) {
-            Debug.Log("colision barrera!");
-			//gameObject.GetComponent<NavMeshAgent> ().enabled = false;
+		if (collision.gameObject.name.Contains("RoadBlock")) {
+			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
 			//gameObject.GetComponent<Collider> ().enabled = false;
 			GetComponent<Animator> ().SetBool ("canAttack", true);
+            collision.gameObject.GetComponent<BarrierHealth>().damage();
 		}	
 		//else if (collision.gameObject.name.Contains("Survivor") || collision.gameObject.name.Contains("Player")) 
         else if (collision.gameObject.name.Contains("Player")) 
@@ -108,11 +108,11 @@ public class ZombieController : MonoBehaviour {
 		gameObject.transform.GetComponent<SurvivorController> ().setMovementEnabled ();
 	}
 
-	//Encontrar otro objetivo
-	void OnTriggerEnter(Collider collider){
+    //Encontrar otro objetivo
+    void OnTriggerEnter(Collider collider){
         //El zombie encuentra un sobreviviente
-		if (collider.gameObject.name.Contains("Survivor")) {
-			setTarget (collider.gameObject);
-		}
-	}
+        if (collider.gameObject.name.Contains("Survivor")) {
+            setTarget (collider.gameObject);
+        }
+    }
 }

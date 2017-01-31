@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BarrierHealth.cs" />
      <Compile Include="Assets\Scripts\BilboardCanvas.cs" />
      <Compile Include="Assets\Scripts\BoxController.cs" />
      <Compile Include="Assets\Scripts\BulletControl.cs" />
