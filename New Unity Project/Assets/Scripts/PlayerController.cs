@@ -65,18 +65,18 @@ public class PlayerController : MonoBehaviour {
 
 			transform.LookAt (transform.position + lookDir, Vector3.up);
 
-	        if (Input.GetMouseButton(0))
-	        {
+			if (Input.GetMouseButton (0)) {
 				//Debug.Log ("DISPARO");
+				Debug.Log ("shooting");
 				if (Time.time > lastShoot + ShootCooldown) {
-					GetComponent<Animator> ().SetBool ("playerIsShooting", true);
-					Fire();
-					lastShoot = Time.time ;
-				}
-	        } else {
-				GetComponent<Animator> ().SetBool ("playerIsShooting", false);
+					GetComponent<Animator> ().SetBool ("playerIsShooting",true);
+					Fire ();
+					lastShoot = Time.time;
 				}
 
+			} else {
+				GetComponent<Animator> ().SetBool ("playerIsShooting",false);
+			}
 
 			//Movimiento
 			if (Input.GetKey("up") || Input.GetKey(KeyCode.W) ) {
