@@ -62,6 +62,7 @@ public class ZombieController : MonoBehaviour {
 
 			if (collision.gameObject.name.Contains("Player")) {
 				player.GetComponent<PlayerController> ().setMovementDisabled ();
+				player.GetComponent<Animator> ().SetBool ("playerIsHurt", true);
 				StartCoroutine (enablePlayerController());
 			}
 			else if (collision.gameObject.name.Contains("Survivor")) {
@@ -86,6 +87,7 @@ public class ZombieController : MonoBehaviour {
 		
 		yield return new WaitForSeconds(2);
 		player.GetComponent<PlayerController> ().setMovementEnabled ();
+		player.GetComponent<Animator> ().SetBool ("playerIsHurt", false);
 	}
 
 	IEnumerator enableSurvivorController(GameObject gameObject){
