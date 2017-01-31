@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\BoxController.cs" />
      <Compile Include="Assets\Scripts\BulletControl.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\GoToMain.cs" />
      <Compile Include="Assets\Scripts\HelicopterController.cs" />
      <Compile Include="Assets\Scripts\LoadGame.cs" />
      <Compile Include="Assets\Scripts\Options.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Scripts\PlayerPowerController.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
      <Compile Include="Assets\Scripts\SurvivorController.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\ZombieController.cs" />
      <Compile Include="Assets\Scripts\ZombieHealth.cs" />
  <Reference Include="UnityEngine.UI">

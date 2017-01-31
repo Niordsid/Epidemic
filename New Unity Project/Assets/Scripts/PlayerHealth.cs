@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour {
             GetComponent<Collider>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
             Destroy(GameObject.Find("Rifle"));
+            StartCoroutine(enableEnd());
         }
 
     }
@@ -35,5 +36,12 @@ public class PlayerHealth : MonoBehaviour {
     public float GetPlayerHealth()
     {
         return currentPlayerHealth;
+    }
+
+    IEnumerator enableEnd() {
+        
+        yield return new WaitForSeconds(1);
+        GameObject.Find("YouDied").SetActive(true);
+        GameObject.Find("ButtonMenu").SetActive(true);
     }
 }

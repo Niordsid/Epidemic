@@ -51,7 +51,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.11151958, b: 0.28676468, a: 0}
+  m_BackGroundColor: {r: 0.34948096, g: 0.3965782, b: 0.4705882, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -89,4 +89,4 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198030254684338}
-  m_Enabled: 1
+  m_Enabled: 0

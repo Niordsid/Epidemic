@@ -25,7 +25,8 @@ public class BarrierHealth : MonoBehaviour {
 
         if (currentBarrierHealth == 0)
         {
-           // died!           
+            GameObject.Find("YouDied").SetActive(true);
+            GameObject.Find("ButtonMenu").SetActive(true);
         }
 
     }

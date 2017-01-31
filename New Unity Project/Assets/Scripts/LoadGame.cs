@@ -8,6 +8,7 @@ public class LoadGame : MonoBehaviour {
 
 	GameObject hud;
 	GameObject city;
+    GameObject inGameHUD;
 
 	Camera CameraGame;
 	Camera CameraMenu;
@@ -46,18 +47,24 @@ public class LoadGame : MonoBehaviour {
 
 		sgame = new StartGame();
 
-		hud = (GameObject)Instantiate(Resources.Load("Prefabs/MainMenu"), transform.position, transform.rotation);
-		hud.name = "HUD";
+        hud = (GameObject)Instantiate(Resources.Load("Prefabs/MainMenu"), transform.position, transform.rotation);
+        hud.name = "HUD";
 
+        
 		//Butons
 		btnJugar = (Button)GameObject.Find ("Menu/Play_Button").GetComponent<Button>();
 
 		btnJugar.onClick.AddListener(()=> Play());
+
+        
 	}
 
 	public void Play(){
 		sgame.startGame ();
 		playing = true;
+        
+        inGameHUD = (GameObject)Instantiate(Resources.Load("Prefabs/HUD1"), transform.position, transform.rotation);
+        inGameHUD.name = "HUDIngame";
 		city = GameObject.Find ("City");
 	}
 	
