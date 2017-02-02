@@ -60,19 +60,22 @@ public class ZombieController : MonoBehaviour {
 		{
 			transform.LookAt (collision.gameObject.transform.position, Vector3.up);
 			gameObject.GetComponent<NavMeshAgent> ().enabled = false;
-            
-            if(!GetComponent<Animator>().GetBool("canBite"))
-                GetComponent<Animator> ().SetBool ("canBite", true);
 
-			if (collision.gameObject.name.Contains("Player")) {
+            if (collision.gameObject.name.Contains("Player")) {
+
+                Debug.Log("colision player");
 
                 if (!player.GetComponent<Animator>().GetBool("playerIsHurt") || player.GetComponent<Animator>().GetBool("playerDie"))
                 {
+                    
                     player.GetComponent<PlayerHealth>().damage();
                     player.GetComponent<PlayerController>().setMovementDisabled();
                     player.GetComponent<Animator>().SetBool("playerIsHurt", true);
                     player.GetComponent<Collider>().enabled = false;
                     StartCoroutine(enablePlayerController());
+                   
+                    
+                    
                 }
 				
 			}
@@ -95,11 +98,15 @@ public class ZombieController : MonoBehaviour {
 	}
     
 	IEnumerator enablePlayerController(){
-        GetComponent<Animator>().SetBool("canBite", false);
+        GetComponent<Animator>().SetBool("canBite", true);
+        //Debug.Log(GetComponent<Animator>().GetBool("canBite"));
         player.GetComponent<Collider>().enabled = true;        
 		yield return new WaitForSeconds(2);
 		player.GetComponent<PlayerController> ().setMovementEnabled ();
         player.GetComponent<Animator>().SetBool("playerIsHurt", false);
+        GetComponent<Animator>().SetBool("canBite", false);
+        //Debug.Log(GetComponent<Animator>().GetBool("canBite"));
+        
 	}
 
 	IEnumerator enableSurvivorController(GameObject gameObject){

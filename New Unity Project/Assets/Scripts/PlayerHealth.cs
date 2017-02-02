@@ -41,7 +41,10 @@ public class PlayerHealth : MonoBehaviour {
     IEnumerator enableEnd() {
         
         yield return new WaitForSeconds(1);
-        GameObject.Find("YouDied").SetActive(true);
-        GameObject.Find("ButtonMenu").SetActive(true);
+
+        GameObject.Find("HUDIngame").transform.FindChild("ButtonMenu").gameObject.SetActive(true);
+        GameObject.Find("HUDIngame").transform.FindChild("YouDied").gameObject.SetActive(true);
+        GameObject.Find("HUDIngame").GetComponent<Timer>().timerOff();
+
     }
 }

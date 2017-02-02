@@ -7,32 +7,44 @@ public class Timer : MonoBehaviour {
 
 
     public float timeLeft;
+    public bool timerOn;
     //public Text timerText;
 	// Use this for initialization
 	void Start () {
         timeLeft = 60f;
+        timerOn = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        timeLeft -= Time.deltaTime;
-        if (timeLeft >= 0 )
+
+        if (timerOn)
         {
-            gameObject.transform.FindChild("timeleft").GetComponent<Text>().text =
-                Mathf.Round(timeLeft).ToString();
+            timeLeft -= Time.deltaTime;
+            if (timeLeft >= 0)
+            {
+                gameObject.transform.FindChild("timeleft").GetComponent<Text>().text =
+                    Mathf.Round(timeLeft).ToString();
+            }
+            if (timeLeft <= 0)
+            {
+                gameObject.transform.FindChild("timeleft").GetComponent<Text>().text = "0";
+                StartCoroutine(enableEnd());
+            }
         }
-        if (timeLeft <= 0)
-        {
-            gameObject.transform.FindChild("timeleft").GetComponent<Text>().text = "0";
-            StartCoroutine(enableEnd());
-        }
+        
 	}
 
     IEnumerator enableEnd()
     {
 
         yield return new WaitForSeconds(1);
-        GameObject.Find("Succes").SetActive(true);
-        GameObject.Find("ButtonMenu").SetActive(true);
+        GameObject.Find("HUDIngame").transform.FindChild("ButtonMenu").gameObject.SetActive(true);
+        GameObject.Find("HUDIngame").transform.FindChild("Success").gameObject.SetActive(true);
+    }
+
+    public void timerOff()
+    {
+        timerOn = false;
     }
 }
